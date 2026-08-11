@@ -7,21 +7,25 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_PUBLISHABLE_KEY
 );
 
-document.getElementById("accessForm").addEventListener("submit", async function (event) {
+const form = document.getElementById("accessForm");
+const message = document.getElementById("message");
+const submitButton = form.querySelector('button[type="submit"]');
+
+form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const message = document.getElementById("message");
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting...";
+  message.textContent = "";
 
   const data = {
     name: document.getElementById("fullName").value.trim(),
     school_email: document.getElementById("schoolEmail").value.trim(),
-    phone: document.getElementById("phone").value.trim(),
     personal_email: document.getElementById("personalEmail").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
     document_requested: document.getElementById("document").value.trim(),
     reason: document.getElementById("reason").value.trim()
   };
-
-  message.textContent = "Submitting...";
 
   const { error } = await supabaseClient
     .from("access_review_responses")
@@ -29,11 +33,16 @@ document.getElementById("accessForm").addEventListener("submit", async function 
 
   if (error) {
     console.error("Supabase error:", error);
-    message.textContent = "There was a problem submitting your request.";
+    message.textContent = "Unable to submit your request. Please try again.";
+    submitButton.disabled = false;
+    submitButton.textContent = "Submit request";
     return;
   }
 
   message.textContent = "Your request has been submitted successfully.";
-  this.reset();
+  form.reset();
+
+  submitButton.disabled = false;
+  submitButton.textContent = "Submit request";
 });
 ```

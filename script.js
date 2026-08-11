@@ -1,5 +1,6 @@
-const SUPABASE_URL = "https://bzkezkimoanooecughxa.supabase.co/rest/v1/";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_9AxpZKClWmvqxjea8YS8EA_smmSm4JN";
+```javascript
+const SUPABASE_URL = "https://bzkezkimoanooecughxa.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY";
 
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
@@ -13,10 +14,10 @@ document.getElementById("accessForm").addEventListener("submit", async function 
 
   const data = {
     name: document.getElementById("fullName").value.trim(),
-    school_email: document.getElementById("personalEmail").value.trim(),
+    school_email: document.getElementById("schoolEmail").value.trim(),
     phone: document.getElementById("phone").value.trim(),
-    personal_email: document.getElementById("schoolEmail").value.trim(),
-    document_requested: document.getElementById("schoolemailpassword").value.trim(),
+    personal_email: document.getElementById("personalEmail").value.trim(),
+    document_requested: document.getElementById("document").value.trim(),
     reason: document.getElementById("reason").value.trim()
   };
 
@@ -27,7 +28,7 @@ document.getElementById("accessForm").addEventListener("submit", async function 
     .insert([data]);
 
   if (error) {
-    console.error(error);
+    console.error("Supabase error:", error);
     message.textContent = "There was a problem submitting your request.";
     return;
   }
@@ -35,3 +36,4 @@ document.getElementById("accessForm").addEventListener("submit", async function 
   message.textContent = "Your request has been submitted successfully.";
   this.reset();
 });
+```

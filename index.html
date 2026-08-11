@@ -1,34 +1,110 @@
-<form id="accessForm">
-  <label>
-    Full name*
-    <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
-  </label>
+```css
+* {
+  box-sizing: border-box;
+}
 
-  <label>
-    School email*
-    <input type="email" id="schoolEmail" name="schoolEmail" placeholder="jane@school.edu" required>
-  </label>
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
 
-  <label>
-    Personal email
-    <input type="email" id="personalEmail" name="personalEmail" placeholder="jane@example.com">
-  </label>
+main {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
 
-  <label>
-    Phone number
-    <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
-  </label>
+h1 {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 28px;
+  color: #1f3a5f;
+}
 
-  <label>
-    Document requested*
-    <input type="text" id="document" name="document" placeholder="Document name" required>
-  </label>
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  <label>
-    Reason for access*
-    <textarea id="reason" name="reason" rows="4" placeholder="Briefly explain your request." required></textarea>
-  </label>
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
 
-  <button type="submit">Submit request</button>
-  <p id="message" class="message" role="status"></p>
-</form>
+input,
+textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  width: 100%;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 7px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  main {
+    padding: 24px 18px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+```

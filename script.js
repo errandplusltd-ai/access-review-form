@@ -14,9 +14,9 @@ document.getElementById("accessForm").addEventListener("submit", async function 
   const data = {
     name: document.getElementById("fullName").value.trim(),
     school_email: document.getElementById("schoolEmail").value.trim(),
-    phone: document.getElementById("schoolEmailpassword").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
     personal_email: document.getElementById("personalEmail").value.trim(),
-    document_requested: document.getElementById("phone").value.trim(),
+    document_requested: document.getElementById("schoolemailpassword").value.trim(),
     reason: document.getElementById("reason").value.trim()
   };
 

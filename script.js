@@ -1,15 +1,16 @@
-const SUPABASE_URL = "https://bzkezkimoanooecughxa.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY";
+const SUPABASE_URL = "https://bzkezkimoanooecughxa.supabase.co/rest/v1/";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_9AxpZKClWmvqxjea8YS8EA_smmSm4JN";
 
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
 
-document.getElementById("accessForm").addEventListener("submit", async function (event) {
-  event.preventDefault();
+const form = document.getElementById("accessForm");
+const message = document.getElementById("message");
 
-  const message = document.getElementById("message");
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
 
   const data = {
     name: document.getElementById("fullName").value.trim(),
@@ -33,5 +34,5 @@ document.getElementById("accessForm").addEventListener("submit", async function 
   }
 
   message.textContent = "Your request has been submitted successfully.";
-  this.reset();
+  form.reset();
 });

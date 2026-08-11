@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access and Review Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Access and Review Document</h1>
+    <p class="subtitle">Please complete the fields below to request access.</p>
+
+    <form id="accessForm">
+      <label>
+        Full name
+        <input type="text" name="fullName" placeholder="Jane Doe" required>
+      </label>
+
+      <label>
+        School email
+        <input type="email" name="schoolEmail" placeholder="jane@school.edu" required>
+      </label>
+
+      <label>
+        Phone number
+        <input type="tel" name="phone" placeholder="+1 (555) 000-0000">
+      </label>
+
+      <label>
+        Personal email
+        <input type="email" name="personalEmail" placeholder="jane@example.com">
+      </label>
+
+      <label>
+        What document do you need access to?
+        <input type="text" name="document" placeholder="Document name" required>
+      </label>
+
+      <label>
+        Reason for access
+        <textarea name="reason" rows="4" placeholder="Briefly explain your request." required></textarea>
+      </label>
+
+      <button type="submit">Submit request</button>
+      <p id="message" class="message" role="status"></p>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
